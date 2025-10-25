@@ -1,0 +1,128 @@
+[00:00:03.980] Server  LOG      ✓ Ready in 2.7s
+[00:00:22.888] Server  LOG      ○ Compiling /register ...
+[00:00:27.982] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:21.906] Server  ERROR   [auth][error] CredentialsSignin: Read more at https://errors.authjs.dev#credentialssignin
+[00:01:21.915] Server  ERROR       at Module.callback (C:\Users\USER\Downloads\3rdSemester-assg\todo-nextjs\.next\dev\server\chunks\node_modules_@auth_core_36df0127._.js:4314:30)
+    at async AuthInternal (C:\Users\USER\Downloads\3rdSemester-assg\todo-nextjs\.next\dev\server\chunks\node_modules_@auth_core_36df0127._.js:5148:24)
+    at async Auth (C:\Users\USER\Downloads\3rdSemester-assg\todo-nextjs\.next\dev\server\chunks\node_modules_@auth_core_36df0127._.js:5370:34)
+    at async AppRouteRouteModule.do (C:\Users\USER\Downloads\3rdSemester-assg\todo-nextjs\node_modules\next\dist\compiled\next-server\app-route-turbo.runtime.dev.js:23:37913)
+    at async AppRouteRouteModule.handle (C:\Users\USER\Downloads\3rdSemester-assg\todo-nextjs\node_modules\next\dist\compiled\next-server\app-route-turbo.runtime.dev.js:23:45132)
+    at async responseGenerator (C:\Users\USER\Downloads\3rdSemester-assg\todo-nextjs\.next\dev\server\chunks\node_modules_next_5d661447._.js:16089:38)
+    at async AppRouteRouteModule.handleResponse (C:\Users\USER\Downloads\3rdSemester-assg\todo-nextjs\node_modules\next\dist\compiled\next-server\app-route-turbo.runtime.dev.js:19:132654)
+    at async handleResponse (C:\Users\USER\Downloads\3rdSemester-assg\todo-nextjs\.next\dev\server\chunks\node_modules_next_5d661447._.js:16151:32)
+    at async handler (C:\Users\USER\Downloads\3rdSemester-assg\todo-nextjs\.next\dev\server\chunks\node_modules_next_5d661447._.js:16204:13)
+    at async DevServer.renderToResponseWithComponentsImpl (C:\Users\USER\Downloads\3rdSemester-assg\todo-nextjs\node_modules\next\dist\server\base-server.js:1415:9)
+    at async DevServer.renderPageComponent (C:\Users\USER\Downloads\3rdSemester-assg\todo-nextjs\node_modules\next\dist\server\base-server.js:1467:24)
+    at async DevServer.renderToResponseImpl (C:\Users\USER\Downloads\3rdSemester-assg\todo-nextjs\node_modules\next\dist\server\base-server.js:1517:32)
+    at async DevServer.pipeImpl (C:\Users\USER\Downloads\3rdSemester-assg\todo-nextjs\node_modules\next\dist\server\base-server.js:1023:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\USER\Downloads\3rdSemester-assg\todo-nextjs\node_modules\next\dist\server\next-server.js:394:17)
+    at async DevServer.handleRequestImpl (C:\Users\USER\Downloads\3rdSemester-assg\todo-nextjs\node_modules\next\dist\server\base-server.js:914:17)
+    at async C:\Users\USER\Downloads\3rdSemester-assg\todo-nextjs\node_modules\next\dist\server\dev\next-dev-server.js:373:20
+    at async Span.traceAsyncFn (C:\Users\USER\Downloads\3rdSemester-assg\todo-nextjs\node_modules\next\dist\trace\trace.js:157:20)
+    at async DevServer.handleRequest (C:\Users\USER\Downloads\3rdSemester-assg\todo-nextjs\node_modules\next\dist\server\dev\next-dev-server.js:369:24)
+    at async invokeRender (C:\Users\USER\Downloads\3rdSemester-assg\todo-nextjs\node_modules\next\dist\server\lib\router-server.js:240:21)
+    at async handleRequest (C:\Users\USER\Downloads\3rdSemester-assg\todo-nextjs\node_modules\next\dist\server\lib\router-server.js:436:24)
+    at async requestHandlerImpl (C:\Users\USER\Downloads\3rdSemester-assg\todo-nextjs\node_modules\next\dist\server\lib\router-server.js:484:13)
+    at async Server.requestListener (C:\Users\USER\Downloads\3rdSemester-assg\todo-nextjs\node_modules\next\dist\server\lib\start-server.js:226:13)
+[00:01:57.656] Server  LOG      ○ Compiling /todos ...
+[00:10:36.427] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:10:57.357] Server  WARN    Error: Route "/api/todos/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+[00:10:57.721] Server  ERROR   PUT todo error: PrismaClientValidationError: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].todo.findFirst()` invocation in
+C:\Users\USER\Downloads\3rdSemester-assg\todo-nextjs\.next\dev\server\chunks\[root-of-the-server]__b90588e2._.js:215:170
+
+  212 }
+  213 const body = await request.json();
+  214 const { todo, completed } = body;
+→ 215 const existingTodo = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].todo.findFirst({
+        where: {
+          userId: 3,
+      +   id: {
+      +     equals: Int | IntFieldRefInput,
+      +     in: Int[],
+      +     notIn: Int[],
+      +     lt: Int | IntFieldRefInput,
+      +     lte: Int | IntFieldRefInput,
+      +     gt: Int | IntFieldRefInput,
+      +     gte: Int | IntFieldRefInput,
+      +     not: Int | NestedIntFilter
+      +   }
+        }
+      })
+
+Argument `id` is missing.
+[00:11:13.863] Server  WARN    Error: Route "/api/todos/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+[00:11:14.254] Server  ERROR   PUT todo error: PrismaClientValidationError: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].todo.findFirst()` invocation in
+C:\Users\USER\Downloads\3rdSemester-assg\todo-nextjs\.next\dev\server\chunks\[root-of-the-server]__b90588e2._.js:215:170
+
+  212 }
+  213 const body = await request.json();
+  214 const { todo, completed } = body;
+→ 215 const existingTodo = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].todo.findFirst({
+        where: {
+          userId: 3,
+      +   id: {
+      +     equals: Int | IntFieldRefInput,
+      +     in: Int[],
+      +     notIn: Int[],
+      +     lt: Int | IntFieldRefInput,
+      +     lte: Int | IntFieldRefInput,
+      +     gt: Int | IntFieldRefInput,
+      +     gte: Int | IntFieldRefInput,
+      +     not: Int | NestedIntFilter
+      +   }
+        }
+      })
+
+Argument `id` is missing.
+[00:11:30.107] Server  WARN    Error: Route "/api/todos/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+[00:11:30.634] Server  ERROR   PUT todo error: PrismaClientValidationError: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].todo.findFirst()` invocation in
+C:\Users\USER\Downloads\3rdSemester-assg\todo-nextjs\.next\dev\server\chunks\[root-of-the-server]__b90588e2._.js:215:170
+
+  212 }
+  213 const body = await request.json();
+  214 const { todo, completed } = body;
+→ 215 const existingTodo = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].todo.findFirst({
+        where: {
+          userId: 3,
+      +   id: {
+      +     equals: Int | IntFieldRefInput,
+      +     in: Int[],
+      +     notIn: Int[],
+      +     lt: Int | IntFieldRefInput,
+      +     lte: Int | IntFieldRefInput,
+      +     gt: Int | IntFieldRefInput,
+      +     gte: Int | IntFieldRefInput,
+      +     not: Int | NestedIntFilter
+      +   }
+        }
+      })
+
+Argument `id` is missing.
+[00:11:38.109] Server  WARN    Error: Route "/api/todos/[id]" used `params.id`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+[00:11:38.475] Server  ERROR   DELETE todo error: PrismaClientValidationError: 
+Invalid `__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].todo.findFirst()` invocation in
+C:\Users\USER\Downloads\3rdSemester-assg\todo-nextjs\.next\dev\server\chunks\[root-of-the-server]__b90588e2._.js:261:170
+
+  258         status: 401
+  259     });
+  260 }
+→ 261 const existingTodo = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$prisma$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["prisma"].todo.findFirst({
+        where: {
+          userId: 3,
+      +   id: {
+      +     equals: Int | IntFieldRefInput,
+      +     in: Int[],
+      +     notIn: Int[],
+      +     lt: Int | IntFieldRefInput,
+      +     lte: Int | IntFieldRefInput,
+      +     gt: Int | IntFieldRefInput,
+      +     gte: Int | IntFieldRefInput,
+      +     not: Int | NestedIntFilter
+      +   }
+        }
+      })
+
+Argument `id` is missing.
