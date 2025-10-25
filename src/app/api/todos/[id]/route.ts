@@ -1,13 +1,14 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 
 // GET single todo
 export async function GET(
-  request: Request,
-  { params }: { params: { id: string } }
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const resolvedParams = await params;
     const session = await auth();
 
     if (!session || !session.user?.id) {
@@ -16,7 +17,7 @@ export async function GET(
 
     const todo = await prisma.todo.findFirst({
       where: {
-        id: parseInt(params.id),
+        id: parseInt(resolvedParams.id),
         userId: parseInt(session.user.id),
       },
     });
@@ -34,10 +35,11 @@ export async function GET(
 
 // PUT update todo
 export async function PUT(
-  request: Request,
-  { params }: { params: { id: string } }
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const resolvedParams = await params;
     const session = await auth();
 
     if (!session || !session.user?.id) {
@@ -49,7 +51,7 @@ export async function PUT(
 
     const existingTodo = await prisma.todo.findFirst({
       where: {
-        id: parseInt(params.id),
+        id: parseInt(resolvedParams.id),
         userId: parseInt(session.user.id),
       },
     });
@@ -59,7 +61,7 @@ export async function PUT(
     }
 
     const updatedTodo = await prisma.todo.update({
-      where: { id: parseInt(params.id) },
+      where: { id: parseInt(resolvedParams.id) },
       data: {
         ...(todo !== undefined && { todo }),
         ...(completed !== undefined && { completed }),
@@ -75,10 +77,11 @@ export async function PUT(
 
 // DELETE todo
 export async function DELETE(
-  request: Request,
-  { params }: { params: { id: string } }
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const resolvedParams = await params;
     const session = await auth();
 
     if (!session || !session.user?.id) {
@@ -87,7 +90,7 @@ export async function DELETE(
 
     const existingTodo = await prisma.todo.findFirst({
       where: {
-        id: parseInt(params.id),
+        id: parseInt(resolvedParams.id),
         userId: parseInt(session.user.id),
       },
     });
@@ -97,7 +100,7 @@ export async function DELETE(
     }
 
     await prisma.todo.delete({
-      where: { id: parseInt(params.id) },
+      where: { id: parseInt(resolvedParams.id) },
     });
 
     return NextResponse.json({ message: 'Todo deleted successfully' });

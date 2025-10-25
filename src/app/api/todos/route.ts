@@ -23,7 +23,7 @@ export async function GET(request: Request) {
     const where: any = { userId };
 
     if (search) {
-      where.todo = { contains: search, mode: 'insensitive' };
+      where.todo = { contains: search };
     }
 
     if (status === 'completed') {
